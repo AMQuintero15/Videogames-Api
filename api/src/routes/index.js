@@ -2,7 +2,7 @@ const { Router } = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 const { Videogame, Genre } = require("../db.js")
-const { getAllVideogamesMain, getAllVideogamesDetailApi, getAllGenres, getDbInfoDetail} = require("./controllers.js")
+const { getAllVideogamesMain, getAllVideogamesDetailApi, getAllGenres, getDbInfoDetail, getAllPlatforms} = require("./controllers.js")
 
 const router = Router();
 
@@ -31,10 +31,17 @@ router.get("/genres", async (req,res) => {
         let genresAll = await getAllGenres();
         res.status(200).send(genresAll)
     } catch (error) {
-         res.status(404).send(`There was an unexpected error: ${error}`)
+        res.status(404).send(`There was an unexpected error: ${error}`)
     }
 })
-
+router.get("/platforms", async (req, res) =>{
+    try {
+        let platformsAll = await getAllPlatforms();
+        res.status(200).send(platformsAll)
+    } catch (error) {
+        res.status(404).send(`There was an unexpected error: ${error}`)
+    }
+})
 router.post("/videogames", async (req,res) => {
     try {
         let {
@@ -77,6 +84,20 @@ router.get("/videogame/:id", async (req,res) =>{
         }
     } catch (error) {
         res.status(404).send(`There was an unexpected error: ${error}`)
+    }
+})
+
+router.delete("/delete/:id", async (req,res)=>{
+    const idDelete = req.params.id;
+    try{
+        await Videogame.destroy({
+            where: {
+                id: idDelete
+            }
+        })
+        res.status(200).send("Game deleted successfully")
+    } catch(err){
+        res.status(404).send("Game could not be deleted")
     }
 })
 

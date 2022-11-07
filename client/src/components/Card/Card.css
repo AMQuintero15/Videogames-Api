@@ -1,0 +1,4 @@
+div.cardMain {
+    grid-area: auto;
+    align-content: flex-start;   
+}

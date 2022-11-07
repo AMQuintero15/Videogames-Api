@@ -1,0 +1,10 @@
+/* div.Home{
+    background-image: url("https://moderndiplomacy.eu/wp-content/uploads/2020/08/videogames.jpg");
+} */
+
+div.cardsHome{
+    width: auto;
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}

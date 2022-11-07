@@ -1,0 +1,14 @@
+ul.ulPaginado{
+    display: flex;
+    list-style-type: none;
+    column-gap: 5px;
+    text-align: center;
+}
+nav.navPaginado{
+    padding-left: 370px;
+    padding-right: 370px;
+}
+
+a.number{
+    color: blue
+}

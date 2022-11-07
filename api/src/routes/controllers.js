@@ -12,7 +12,9 @@ const getVideogamesMainApi = async() =>{
         id: el.id,
         name: el.name,
         image: el.background_image,
-        genre: el.genres.map(genre => genre.name)
+        genre: el.genres.map(genre => genre.name),
+        platforms: el.platforms.map(platforms => platforms.platform.name),
+        rating: el.rating
       })
     })
     apiUrlVideogames = response.data.next
@@ -44,8 +46,10 @@ const getAllVideogamesMain = async () =>{
       let newVideogame = {
         id: el.id,
         name: el.name,
-        image: el.background_image,
-        genre: el.genres
+        image: el.image,
+        genre: el.genres.map(genre => genre.name),
+        rating: Number(el.rating),
+        createdInDb: el.createdInDb
       }
       return newVideogame
     })
@@ -119,13 +123,34 @@ const getAllVideogamesMain = async () =>{
         
       })
     });
-    console.log("Genres Loaded Successfully")
+    // console.log("Genres Loaded Successfully")
     return genresInfo
+  }
+
+  const getAllPlatforms = async () =>{
+    let apiUrlVideogames = `https://api.rawg.io/api/games?key=${API_KEY}`
+    let apiInfoPlatforms = []
+      for (let i = 0; i < 5; i++) {
+        const response = await axios.get(apiUrlVideogames)
+        response.data.results.map(el => {
+          apiInfoPlatforms.push({
+            platforms: el.platforms.map(platforms => platforms.platform.name),
+          })
+        })
+        apiUrlVideogames = response.data.next
+      }
+    const apiInfoPlatformsEach = apiInfoPlatforms.map(el =>{
+      return el.platforms
+      })
+    const apiInfoSet = new Set (apiInfoPlatformsEach.flat())
+    const apiInfoArr = Array.from(apiInfoSet)
+    return apiInfoArr.sort()
   }
 
   module.exports = {
     getAllVideogamesMain,
     getAllVideogamesDetailApi,
     getAllGenres,
-    getDbInfoDetail
+    getDbInfoDetail,
+    getAllPlatforms
   }
