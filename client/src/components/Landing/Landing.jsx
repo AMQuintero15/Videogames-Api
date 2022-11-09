@@ -10,7 +10,9 @@ export default function LandingPage(){
             <Logo/>
             <h1 className="videogamesapp">Videogames App</h1>
             <Link to="/home">
-                <button className="buttonaccess">Access</button>
+                <div className="buttonAccessContainer">
+                <button className="buttonAccess">Access</button>
+                </div>
             </Link>
                 <div className="welcome-image">
                 <img src={Welcome} alt="Not Found" width="200px"

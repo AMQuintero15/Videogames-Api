@@ -9,6 +9,7 @@ export default function Paginado({gamesPerPage, allGames, paginado}){
     }
 
     return(
+        <div className="divPaginado">
         <nav className="navPaginado">
             <ul className="ulPaginado">
                 { pageNumbers?.map(number => (
@@ -18,5 +19,6 @@ export default function Paginado({gamesPerPage, allGames, paginado}){
                 ))}
             </ul>
         </nav>
+        </div>
     )
 }

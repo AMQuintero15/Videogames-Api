@@ -97,3 +97,10 @@ export function filterByCreated(payload){
         payload
     }
 }
+
+export function loading(payload){
+    return {
+        type: "LOADING",
+        payload
+    }
+}

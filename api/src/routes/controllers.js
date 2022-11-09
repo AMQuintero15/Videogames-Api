@@ -123,7 +123,6 @@ const getAllVideogamesMain = async () =>{
         
       })
     });
-    // console.log("Genres Loaded Successfully")
     return genresInfo
   }
 

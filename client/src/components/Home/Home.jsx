@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGames, filterByName, filterByRating, filterByGenre, getGenres, filterByCreated } from "../../actions";
+import { getGames, filterByName, filterByRating, filterByGenre, getGenres, filterByCreated, loading } from "../../actions";
 import { Link } from "react-router-dom";
 import "./Home.css"
 import Card from "../Card/Card";
@@ -14,6 +14,7 @@ export default function Home(){
     const dispatch = useDispatch()
     const allGames = useSelector((state) => state.games)
     const allGenres = useSelector((state) => state.genres)
+    const loadingGames = useSelector((state) => state.loading)
     const [order, setOrder] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const [gamesPerPage, setGamesPerPage] = useState(15)
@@ -28,6 +29,7 @@ export default function Home(){
     useEffect(() =>{
         dispatch(getGames());
         dispatch(getGenres());
+        dispatch(loading())
     },[dispatch])
 
     function handleClick(e){
@@ -63,20 +65,29 @@ export default function Home(){
     return (
         <div className="Home">
             <Link className="homeCreateGame" to= "/creategame">Create Game</Link>
-            <h1>Videogames Information Matrix</h1>
-            <button  onClick={ e => {handleClick(e)}}>
+            <h1>Videogames Matrix</h1>
+            <div className="reloadButtonContainer">
+            <button className="reloadButton"  onClick={ e => {handleClick(e)}}>
                 Reload All Games
             </button>
-            <div>
-                <select onChange={e => handleSortName(e)}>
-                    <option value="Asc Name">Sort By Name (A - Z)</option>
-                    <option value="Desc Name">Sort By Name (Z - A)</option>
+            </div>
+            <div className="sortsPaginSearchContainer">
+                <div className="sortNameContainer">
+                <select className="selectName" onChange={e => handleSortName(e)}>
+                    <option value="All">Sort By Name</option>
+                    <option value="Asc Name">Name (A - Z)</option>
+                    <option value="Desc Name">Name (Z - A)</option>
                 </select>
-                <select onChange={e => handleSortRating(e)}>
-                    <option value="Asc Rating">Sort By Rating (0 - 5)</option>
-                    <option value="Desc Rating">Sort By Rating (5 - 0)</option>
+                </div>
+                <div className="sortRatingContainer">
+                <select className="selectRating" onChange={e => handleSortRating(e)}>
+                    <option value="All">Sort By Rating</option>
+                    <option value="Asc Rating">Rating (0 - 5)</option>
+                    <option value="Desc Rating">Rating (5 - 0)</option>
                 </select>
-                <select onChange={e => handleFilterGenre(e)}>
+                </div>
+                <div className="sortGenresContainer">
+                <select className="selectGenres" onChange={e => handleFilterGenre(e)}>
                     <option value="All">Sort By Genres</option>
                     {
                         allGenres?.map(el => {
@@ -86,32 +97,32 @@ export default function Home(){
                         })
                     }
                 </select>
-                <select onChange={e => handleFilterCreated(e)}>
+                </div>
+                <div className="sortCreatedContainer">
+                <select className="selectCreated" onChange={e => handleFilterCreated(e)}>
                     <option value="All Games">All Games</option>
                     <option value="Created Games">Created Games</option>
                     <option value="Api Games">Existing Games</option>
                 </select>
-                <Paginado
-                gamesPerPage={gamesPerPage}
-                allGames={allGames.length}
-                paginado={paginado}
-                />
-                <SearchBar/>
-                {/* {currentGames?.map((el)=> {
-                    return (
-                        <div key={el.id} className="cardsHome">
-                                    <Card name={el.name} image={el.image ? el.image : "https://pbs.twimg.com/media/Do_MJoHXkAEya2z.jpg"} genre={el.genre} id={el.id} rating={el.rating} />
-                            </div>
-                        )})} */}
+                </div>
+                <SearchBar setCurrentPage={setCurrentPage}/>
             </div>
-            <div className="cardsHome">
+            {
+                loadingGames === false && allGames !== "Games Not Loaded"?
+                <div className="cardsHome">
             {currentGames?.map((el)=> {
-                    return (
-                        <div key={el.id}>
-                                    <Card name={el.name} image={el.image ? el.image : "https://pbs.twimg.com/media/Do_MJoHXkAEya2z.jpg"} genre={el.genre} id={el.id} rating={el.rating} />
-                            </div>
+                return (
+                    <div className="divCardHome" key={el.id}>
+                                <Card name={el.name} image={el.image ? el.image : "https://pbs.twimg.com/media/Do_MJoHXkAEya2z.jpg"} genre={el.genre} id={el.id} rating={el.rating} />
+                        </div>
                         )})}
-            </div>
+            </div> : <p className="Loading">Loading...</p>
+            }
+            <Paginado
+            gamesPerPage={gamesPerPage}
+            allGames={allGames.length}
+            paginado={paginado}
+            />
         </div>
     )
 }

@@ -1,0 +1,16 @@
+div.searchContainer{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-block-start: 10px;
+}
+
+input.searchInput{
+    font-size: 18px;
+    font-family: "Papyrus", fantasy;
+}
+
+button.searchButton{
+    font-size: 18px;
+    font-family: "Copperplate", fantasy;
+}

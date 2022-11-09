@@ -1,10 +1,105 @@
-/* div.Home{
-    background-image: url("https://moderndiplomacy.eu/wp-content/uploads/2020/08/videogames.jpg");
-} */
-
 div.cardsHome{
     width: auto;
     gap: 30px;
     display: flex;
     flex-wrap: wrap;
+    padding-left: 30px;
+}
+
+div.Home{
+    background-image: url("https://t3.ftcdn.net/jpg/02/65/25/64/360_F_265256475_556ZDKMSenD9Xq1VekwNQZvcscXKeJGa.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+div.reloadButtonContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block-end: 10px;
+}
+
+button.reloadButton{
+    font-size: 18px;
+    font-family: "Copperplate", fantasy;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    box-shadow: 2px 4px 10px 1px white;
+    background-color: lightgray;
+}
+
+div.sortsPaginSearchContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    padding-block-end: 10px;
+}
+
+div.sortNameContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    box-shadow: 2px 4px 10px 1px red;
+}
+
+select.selectName{
+    background-color: #ff0707e0;
+    font-size: 18px;
+    font-family: "Copperplate", fantasy;
+}
+
+div.sortRatingContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    box-shadow: 2px 4px 10px 2px yellow;
+}
+
+select.selectRating{
+    background-color: #ffe700;
+    font-size: 18px;
+    font-family: "Copperplate", fantasy;
+}
+
+div.sortGenresContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    box-shadow: 2px 4px 10px 2px violet;
+}
+
+select.selectGenres{
+    background-color: #f70776;
+    font-size: 18px;
+    font-family: "Copperplate", fantasy;
+}
+
+div.sortCreatedContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    box-shadow: 2px 4px 10px 3px lightgreen;
+}
+
+select.selectCreated{
+    background-color: #4ef037;
+    font-size: 18px;
+    font-family: "Copperplate", fantasy;
+}
+
+p.Loading{
+    font-size: 100px;    
+}
+
+div.divCardHome {
+    box-shadow: 2px 4px 10px 0.5px white;
+    border: 1px solid black;
+    background-color: #393e46
 }

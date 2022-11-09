@@ -1,4 +1,162 @@
-/* p.gameCreateGenres {
-    grid: 200px 100px / auto-flow 30%;
-    align-content: flex-start;
+div.divCreate{
+    background-image: url("https://t3.ftcdn.net/jpg/02/65/25/64/360_F_265256475_556ZDKMSenD9Xq1VekwNQZvcscXKeJGa.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+div.selectPlatsContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block-end: 10px;
+}
+
+div.selectGenreContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block-end: 10px;
+}
+
+div.gameCreateGenresContainer{
+    display: flex;
+    justify-content: flex-start;
+    padding-block-end: 15px;
+    padding-left: 90px;
+}
+
+div.gameCreatePlatsContainer{
+    display: flex;
+    justify-content: flex-start;
+    padding-block-end: 15px;
+    padding-left: 90px;
+}
+
+/* div.submitButtonContainer{
 } */
+
+label{
+    padding-inline-end: 5px;
+}
+
+
+div.inputNameContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block-end: 10px;
+}
+
+input.inputName{
+    font-size: 18px;
+    font-family: "Papyrus", fantasy;
+}
+    
+
+div.inputDescriptionContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-block-end: 10px;
+}
+
+textarea.textAreaDescription{
+    font-size: 18px;
+    font-family: "Papyrus", fantasy;
+}
+
+div.inputDateContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block-end: 10px;
+}
+
+input.inputDate{
+    font-size: 18px;
+    font-family: "Papyrus", fantasy;
+}
+
+div.inputRatingContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block-end: 10px;
+}
+
+input.inputRating{
+    font-size: 18px;
+    font-family: "Papyrus", fantasy;
+}
+
+div.inputImageContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block-end: 10px;
+}
+
+input.inputImage{
+    font-size: 18px;
+    font-family: "Papyrus", fantasy;
+}
+
+select.selectGenre{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-family: "Papyrus", fantasy;
+}
+
+select.selectPlats{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-family: "Papyrus", fantasy;
+}
+
+button.submitButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 25px;
+    font-family: "Copperplate", fantasy;
+}
+
+button.buttonGoBack{
+    font-size: 18px;
+    font-family: "Copperplate", fantasy;
+}
+
+button.buttonX{
+    font-size: 18px;
+    font-family: "Papyrus", fantasy;
+}
+
+p{
+    padding-left: 10px;
+}
+
+form.formCreateGame{
+    padding-left: 100px;
+}
+
+img.imgCreate{
+    height: 500px;
+    width: auto;
+    position: absolute;
+    left: 730px;
+    top: 105px;
+}

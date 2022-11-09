@@ -1,4 +1,8 @@
-div.cardMain {
-    grid-area: auto;
-    align-content: flex-start;   
+div.divCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }

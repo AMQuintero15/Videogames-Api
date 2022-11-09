@@ -1,14 +1,16 @@
 ul.ulPaginado{
     display: flex;
     list-style-type: none;
-    column-gap: 5px;
+    column-gap: 20px;
     text-align: center;
+    font-size: 30px;
 }
-nav.navPaginado{
-    padding-left: 370px;
-    padding-right: 370px;
+div.divPaginado{
+    display: flex;
+    justify-content: center;
 }
 
 a.number{
-    color: blue
+    color: #8a0f0f;
+    font-family: "Copperplate", Fantasy;
 }

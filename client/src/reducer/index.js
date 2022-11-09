@@ -1,9 +1,10 @@
 const initialState = {
-    games: [],
+    games: "Games Not Loaded",
     allGames: [],
     detail: "Game Not Loaded",
     genres: [],
-    platforms: []
+    platforms: [],
+    loading: true
 }
 
 function rootReducer(state = initialState, action){
@@ -63,7 +64,7 @@ function rootReducer(state = initialState, action){
             }
         case "FILTER_BY_RATING":
             const allGamesRating = state.allGames
-            const allGamesRatingFiltered = allGamesRating.filter(el => el.rating !== false)
+            const allGamesRatingFiltered = allGamesRating.filter(el => el.rating)
 
             const gamesRating = action.payload
                 if(gamesRating === "Asc Rating"){
@@ -97,6 +98,11 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
                 games: action.payload === "All Games" ? state.allGames : createdFilter
+            }
+        case "LOADING":
+            return{
+                ...state,
+                loading: !state.loading
             }
         default:
             return state

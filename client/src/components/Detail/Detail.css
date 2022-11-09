@@ -1,0 +1,34 @@
+div.divDetailContainer{
+    background-image: url("https://t3.ftcdn.net/jpg/02/65/25/64/360_F_265256475_556ZDKMSenD9Xq1VekwNQZvcscXKeJGa.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+div.divDetail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    border: 2px solid white;
+    border-width: thin;
+}
+
+h2.titleDetail{
+    text-shadow: 2px 4px 10px red;
+    color: #c01111;
+}
+
+h5.descriptionDetail{
+    font-size: 18px;
+    text-align: justify;
+    width: 400px;
+}
+
+a.detailGoBack{
+    padding-top: 8px;
+}
