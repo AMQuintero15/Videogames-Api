@@ -19,11 +19,6 @@ const getVideogamesMainApi = async() =>{
     })
     apiUrlVideogames = response.data.next
   }
-  // let countIds = 0;
-  // apiInfoVideogames.forEach((element, index, array) => {
-  //   countIds++
-  // });
-  // console.log(countIds)
   return apiInfoVideogames.sort( (a,b) => a.id - b.id )
   }
 

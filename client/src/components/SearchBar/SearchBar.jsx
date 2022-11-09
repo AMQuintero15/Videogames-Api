@@ -14,6 +14,9 @@ export default function SearchBar({setCurrentPage}) {
     }
 
     async function handleSubmit(e){
+        if(!name){
+            return alert("Please input a name to search")
+        }
         e.preventDefault()
         dispatch(loading())
         setName(" ")

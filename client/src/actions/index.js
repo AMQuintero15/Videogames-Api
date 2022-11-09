@@ -50,6 +50,7 @@ export function getGamesByName(name){
             })
         }
         catch (err){
+            alert("Videogame Not Found")
             console.log(err)
         } 
     }

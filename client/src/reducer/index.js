@@ -29,7 +29,7 @@ function rootReducer(state = initialState, action){
         case "GET_GAME_BY_NAME":
             return {
                 ...state,
-                games: action.payload 
+                games: action.payload
             }
         case "GET_GAME_DETAIL":
             return {

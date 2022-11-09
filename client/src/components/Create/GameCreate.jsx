@@ -24,10 +24,11 @@ function validate(input){
     else if(input.image && !/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi.test(input.image)){
         errors.image = "Image Must Be An URL"
     }
-    // else if(input.genre.length >= 1){
+    // else if(input.genre.length === 0){
+    //     console.log(`Se ejecuto el If del Genre`)
     //     errors.genre = "Add At Least One Genre To Your Game";
     // }
-    // else if(!input.platforms.length < 1){
+    // else if(input.platforms.length < 1){
     //     errors.platforms = "On Which Platform Can Your Game Be Played?";
     // }
     return errors
@@ -39,7 +40,7 @@ export default function GameCreate(){
     const genres = useSelector((state) => state.genres)
     const platforms = useSelector((state) => state.platforms)
     const [errors, setErrors] = useState({
-        name: "A Name Is Required",
+        name: "A name is required",
     });
 
     const [input, setInput] = useState({
@@ -58,9 +59,14 @@ export default function GameCreate(){
         return dispatch(loading())
     }, [dispatch]);
     
+    useEffect(() =>{
+        
+    }, [input]);
+
     console.log(input)
     console.log(errors)
     console.log(input.genre.length)
+
     function handleChange(e){
         setInput({
             ...input,
